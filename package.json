@@ -1,0 +1,45 @@
+{
+  "name": "telco-benchmark",
+  "version": "1.0.0",
+  "description": "Simple script to benchmark telco performance using Ookla speed test CLI script",
+  "main": "save.js",
+  "scripts": {
+    "speedtest": "speedtest -f json",
+    "start": "npm run speedtest | ./save.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/matmar10/telco-benchmark.git"
+  },
+  "keywords": [
+    "Telco",
+    "Performance",
+    "Benchmark",
+    "Google",
+    "Doc",
+    "Node.js",
+    "Node",
+    "JS",
+    "Speed",
+    "Test",
+    "Ookla"
+  ],
+  "author": "Matthew J. Martin <matthew.mar10@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matmar10/telco-benchmark/issues"
+  },
+  "homepage": "https://github.com/matmar10/telco-benchmark#readme",
+  "dependencies": {
+    "csv-stringify": "^5.6.2",
+    "google-spreadsheet": "^3.1.15",
+    "moment": "^2.29.1",
+    "ora": "^5.4.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-es-beautifier": "^1.0.1"
+  }
+}

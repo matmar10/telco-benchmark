@@ -109,5 +109,4 @@ dist
 # Outputs of this script
 result.json
 results.csv
-logs.txt
 

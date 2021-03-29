@@ -52,9 +52,9 @@ async function upload(argv) {
       'DL Bandw': testReport.download.bandwidth / BYTES_PER_MBPS,
       'DL Bytes': testReport.download.bytes / BYTES_PER_MBPS,
       'DL Elapsed': testReport.download.elapsed,
-      'UL Bandw': testReport.download.bandwidth / BYTES_PER_MBPS,
-      'UL Bytes': testReport.download.bytes / BYTES_PER_MBPS,
-      'UL Elapsed': testReport.download.elapsed,
+      'UL Bandw': testReport.upload.bandwidth / BYTES_PER_MBPS,
+      'UL Bytes': testReport.upload.bytes / BYTES_PER_MBPS,
+      'UL Elapsed': testReport.upload.elapsed,
       'Ping Jitter': testReport.ping.jitter,
       'Ping Latency': testReport.ping.latency,
       'Source IP': testReport.interface.externalIp,
@@ -91,7 +91,7 @@ async function upload(argv) {
     if (saveToGoogle) {
       spinner.start(`Loading Google credentials (file: '${googleCredsFile}')...`);
       const creds = require('./.account.json');
-      spinner.succeed(`Loading Google credentials (file: '${googleCredsFile}') OK`);
+      spinner.succeed(`Loaded Google credentials (file: '${googleCredsFile}') OK`);
 
       spinner.start(`Loading Google Spreadsheet (ID: ${spreadsheetId})...`);
       const doc = new GoogleSpreadsheet(spreadsheetId);
@@ -119,7 +119,7 @@ async function upload(argv) {
       spinner.start(`Adding result row to Google Spreadsheet (ID: ${spreadsheetId})...`);
       const orderedRow = header.map((key) => row[key]);
       await worksheet.addRows([orderedRow]);
-      spinner.succeed(`Adding result row to Google Spreadsheet (ID: ${spreadsheetId}) OK.`);
+      spinner.succeed(`Added result row to Google Spreadsheet (ID: ${spreadsheetId}) OK.`);
     }
   } catch (err) {
     spinner.fail(`Failed: ${err.message}`);
